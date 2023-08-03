@@ -20,7 +20,7 @@ with tab1:
    
    
    df = pd.read_csv(location)
-   st.dataframe(df)
+#   st.dataframe(df)
    
    el_list = df.columns.tolist()[27:80]
    
