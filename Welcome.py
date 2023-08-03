@@ -19,3 +19,10 @@ el_list = df.columns.tolist()[27:80]
 x_axis = st.multiselect("Select element", el_list, el_list[0])
 
 st.multiselect("Select location", file_name_list)
+
+
+arr = np.random.normal(1, 1, size=100)
+fig, ax = plt.subplots()
+ax.hist(arr, bins=20)
+
+st.pyplot(fig)
