@@ -22,7 +22,7 @@ col1, col2 = st.columns([3, 1])
 
 col1.subheader("Data selection")
 x_axis = col1.selectbox("Select element#1", el_list, index = 0)
-y_axis = col2.selectbox("Select element#2", el_list, index = 0)
+y_axis = col1.selectbox("Select element#2", el_list, index = 0)
 
 x = df[x_axis]/10000
 y = df[y_axis]/10000
