@@ -24,7 +24,10 @@ y_axis = st.selectbox("Select element#2", el_list, index = 0)
 x = df[x_axis]/10000
 y = df[y_axis]/10000
 y_mean = np.mean(y)
-y_std = np.std(y)
+
+std_level = st.radio("Select std level", ('1', '2', '3'))  
+
+y_std = np.std(y) * float(std_level)
 
 x_min = np.min(x)
 x_max = np.max(x)
