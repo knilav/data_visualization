@@ -1,4 +1,4 @@
-import streamlit as st
+owimport streamlit as st
 import pandas as pd
 import os
 #import matplotlib.pyplot as plt
@@ -39,6 +39,6 @@ p = figure(
 
 p.circle(x, y, legend_label='Trend', line_width=5)
 p.line([x_min, x_max], [y_mean, y_mean], legend_label="Mean", line_width=2)
-p.rect(x_center, y_mean, width = x_width, height = y_std, legend_label="Mean", line_width=2, fill_color = "y")
+p.rect(x_center, y_mean, width = x_width, height = y_std, legend_label="Mean", line_width=2, fill_color = "grey")
 
 st.bokeh_chart(p, use_container_width=True)
