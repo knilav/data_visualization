@@ -33,6 +33,6 @@ p = figure(
 
 p.circle(x, y, legend_label='Trend', line_width=5)
 p.line([np.min(x), np.max(x)], [y_mean, y_mean], legend_label="Mean", line_width=2)
-#p.rect(x, y, legend_label="Mean", line_width=2)
+p.rect(np.min(x), np.min(x) - y_std , 2, y_std, legend_label="Mean", line_width=2)
 
 st.bokeh_chart(p, use_container_width=True)
