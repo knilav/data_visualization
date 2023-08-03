@@ -26,10 +26,10 @@ st.multiselect("Select location", file_name_list)
 
 
 
-x = [1, 2, 3, 4, 5]
-y = [6, 7, 2, 4, 5]
+x = df[x_axis]
+y = df[y_axis]
 
-plt.scatter(df[x_axis]/10000, df[y_axis]/10000)
+#plt.scatter(df[x_axis]/10000, df[y_axis]/10000)
 
 p = figure(
     title='simple line example',
