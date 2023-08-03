@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 from bokeh.plotting import figure
 
@@ -18,7 +18,9 @@ df = pd.read_csv('Bastar Craton.csv')
 st.dataframe(df)
 
 el_list = df.columns.tolist()[27:80]
-x_axis = st.multiselect("Select element", el_list, el_list[0])
+
+x_axis = st.selectbox("Select element", el_list)
+y_axis = st.selectbox("Select element", el_list)
 
 st.multiselect("Select location", file_name_list)
 
@@ -26,6 +28,8 @@ st.multiselect("Select location", file_name_list)
 
 x = [1, 2, 3, 4, 5]
 y = [6, 7, 2, 4, 5]
+
+plt.scatter(df[x_axis]/10000, df[y_axis]/10000)
 
 p = figure(
     title='simple line example',
