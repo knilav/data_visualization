@@ -13,31 +13,22 @@ for i in os.listdir():
 #st.write(file_name_list)
   
 location = st.selectbox("Select location", file_name_list)
-
 df = pd.read_csv(location)
 st.dataframe(df)
 
-el_list1 = df.columns.tolist()[27:80]
-el_list2 = df.columns.tolist()[27:80]
+el_list = df.columns.tolist()[27:80]
 
-x_axis = st.selectbox("Select element#1", el_list1, index = 0)
-st.write(df[x_axis])
-y_axis = st.selectbox("Select element#2", el_list2, index = 0)
-
-
-
-
+x_axis = st.selectbox("Select element#1", el_list, index = 0)
+y_axis = st.selectbox("Select element#2", el_list, index = 0)
 
 x = df[x_axis]
 y = df[y_axis]
-
-#plt.scatter(df[x_axis]/10000, df[y_axis]/10000)
 
 p = figure(
     title='simple line example',
     x_axis_label='x',
     y_axis_label='y')
 
-p.circle(x, y, legend_label='Trend', line_width=2)
+p.circle(x, y, legend_label='Trend', line_width=5)
 
 st.bokeh_chart(p, use_container_width=True)
