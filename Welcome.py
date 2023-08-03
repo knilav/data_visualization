@@ -20,9 +20,9 @@ st.dataframe(df)
 el_list1 = df.columns.tolist()[27:80]
 el_list2 = df.columns.tolist()[27:80]
 
-x_axis = st.selectbox("Select element", el_list1)
+x_axis = st.selectbox("Select element", el_list1, index = 0)
 st.write(df[x_axis])
-y_axis = st.selectbox("Select element", el_list2)
+y_axis = st.selectbox("Select element", el_list2, index = 0)
 
 st.multiselect("Select location", file_name_list)
 
