@@ -26,8 +26,13 @@ y = df[y_axis]/10000
 y_mean = np.mean(y)
 
 std_level = st.radio("Select std level", ('1', '2', '3'))  
+if std_level == "1":
+  y_std = np.std(y) * 1.0
+if std_level == "2":
+  y_std = np.std(y) * 2.0
+if std_level == "3":
+  y_std = np.std(y) * 3.0
 
-y_std = np.std(y) * float(std_level)
 
 x_min = np.min(x)
 x_max = np.max(x)
