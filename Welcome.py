@@ -18,7 +18,7 @@ st.dataframe(df)
 
 el_list = df.columns.tolist()[27:80]
 
-col1, col2 = st.columns([1, 3])
+col1, col2 = st.columns([1, 4])
 
 col1.subheader("Data selection")
 x_axis = col1.selectbox("Select element#1", el_list, index = 0)
