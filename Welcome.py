@@ -23,13 +23,6 @@ x_axis = st.multiselect("Select element", el_list, el_list[0])
 st.multiselect("Select location", file_name_list)
 
 
-arr = np.random.normal(1, 1, size=100)
-fig, ax = plt.subplots()
-ax.hist(arr, bins=20)
-
-st.pyplot(fig)
-
-
 
 x = [1, 2, 3, 4, 5]
 y = [6, 7, 2, 4, 5]
@@ -39,6 +32,6 @@ p = figure(
     x_axis_label='x',
     y_axis_label='y')
 
-p.line(x, y, legend_label='Trend', line_width=2)
+p.circle(x, y, legend_label='Trend', line_width=2)
 
 st.bokeh_chart(p, use_container_width=True)
