@@ -17,10 +17,11 @@ for i in os.listdir():
 df = pd.read_csv('Bastar Craton.csv')
 st.dataframe(df)
 
-el_list = df.columns.tolist()[27:80]
+el_list1 = df.columns.tolist()[27:80]
+el_list2 = df.columns.tolist()[27:80]
 
-x_axis = st.selectbox("Select element", el_list)
-y_axis = st.selectbox("Select element", el_list)
+x_axis = st.selectbox("Select element", el_list1)
+y_axis = st.selectbox("Select element", el_list2)
 
 st.multiselect("Select location", file_name_list)
 
