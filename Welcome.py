@@ -24,6 +24,15 @@ col1.subheader("Data selection")
 x_axis = col1.selectbox("Select element#1", el_list, index = 0)
 y_axis = col2.selectbox("Select element#2", el_list, index = 0)
 
+x = df[x_axis]/10000
+y = df[y_axis]/10000
+y_mean = np.mean(y)
+x_min = np.min(x)
+x_max = np.max(x)
+
+x_center = 0.5*(x_min + x_max)
+x_width = x_max - x_min
+
 std_level = col1.radio("Select std level", ('1', '2', '3'))  
 if std_level == "1":
   y_std = np.std(y) * 1.0
@@ -33,14 +42,7 @@ if std_level == "3":
   y_std = np.std(y) * 3.0
 
 col2.subheader("Data chart")
-x = df[x_axis]/10000
-y = df[y_axis]/10000
-y_mean = np.mean(y)
-x_min = np.min(x)
-x_max = np.max(x)
 
-x_center = 0.5*(x_min + x_max)
-x_width = x_max - x_min
 
 p = figure(
     title='simple line example',
