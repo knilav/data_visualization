@@ -18,14 +18,13 @@ st.dataframe(df)
 
 el_list = df.columns.tolist()[27:80]
 
-x_axis = st.selectbox("Select element#1", el_list, index = 0)
-y_axis = st.selectbox("Select element#2", el_list, index = 0)
+col1, col2 = st.columns([3, 1])
 
-x = df[x_axis]/10000
-y = df[y_axis]/10000
-y_mean = np.mean(y)
+col1.subheader("Data selection")
+x_axis = col1.selectbox("Select element#1", el_list, index = 0)
+y_axis = col2.selectbox("Select element#2", el_list, index = 0)
 
-std_level = st.radio("Select std level", ('1', '2', '3'))  
+std_level = col1.radio("Select std level", ('1', '2', '3'))  
 if std_level == "1":
   y_std = np.std(y) * 1.0
 if std_level == "2":
@@ -33,7 +32,10 @@ if std_level == "2":
 if std_level == "3":
   y_std = np.std(y) * 3.0
 
-
+col2.subheader("Data chart")
+x = df[x_axis]/10000
+y = df[y_axis]/10000
+y_mean = np.mean(y)
 x_min = np.min(x)
 x_max = np.max(x)
 
@@ -50,4 +52,4 @@ p.circle(x, y, legend_label='Trend', line_width=5)
 p.line([x_min, x_max], [y_mean, y_mean], legend_label="Mean", line_width=2)
 
 
-st.bokeh_chart(p, use_container_width=True)
+col2.bokeh_chart(p, use_container_width=True)
