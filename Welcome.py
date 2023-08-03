@@ -26,13 +26,19 @@ y = df[y_axis]/10000
 y_mean = np.mean(y)
 y_std = np.std(y)
 
+x_min = np.min(x)
+x_max = np.max(x)
+
+x_center = 0.5*(x_min + x_max)
+x_width = x_max - x_min
+
 p = figure(
     title='simple line example',
     x_axis_label='x',
     y_axis_label='y')
 
 p.circle(x, y, legend_label='Trend', line_width=5)
-p.line([np.min(x), np.max(x)], [y_mean, y_mean], legend_label="Mean", line_width=2)
-p.rect(np.min(x), y_mean - y_std, width = np.max(x) - np.min(x), height = y_std, legend_label="Mean", line_width=2)
+p.line([x_min, x_max], [y_mean, y_mean], legend_label="Mean", line_width=2)
+p.rect(x_center, y_mean, width = x_width, height = y_std, legend_label="Mean", line_width=2)
 
 st.bokeh_chart(p, use_container_width=True)
