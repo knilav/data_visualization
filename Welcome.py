@@ -23,6 +23,8 @@ y_axis = st.selectbox("Select element#2", el_list, index = 0)
 
 x = df[x_axis]/10000
 y = df[y_axis]/10000
+y_mean = np.mean(y)
+y_std = np.std(y)
 
 p = figure(
     title='simple line example',
@@ -30,5 +32,7 @@ p = figure(
     y_axis_label='y')
 
 p.circle(x, y, legend_label='Trend', line_width=5)
+p.line([np.min(x), np.max(x)], [y_mean, y_mean], legend_label="Mean", line_width=2)
+#p.rect(x, y, legend_label="Mean", line_width=2)
 
 st.bokeh_chart(p, use_container_width=True)
